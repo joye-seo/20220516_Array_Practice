@@ -43,8 +43,8 @@ public class MainDrive {
 		winNumbers[5] = 40;
 
 		// 당첨번호 랜덤으로 작성
-		
-		//몇등인지 맞추는 로
+
+		// 몇등인지 맞추는 로직
 
 		// 당첨번호 확인
 
@@ -59,17 +59,37 @@ public class MainDrive {
 		}
 
 		// 당첨등수 확인
-		if (correctCount == 6) {
+//		if (correctCount == 6) {
+//			System.out.println("1등 축");
+//		} else if (correctCount == 5) {
+//			System.out.println("3등 ");
+//		} else if (correctCount == 4) {
+//			System.out.println("4등 ");
+//		} else if (correctCount == 3) {
+//			System.out.println("5등 ");
+//		} else {
+//			System.out.println("탈락");
+//		}
+
+		// 당첨둥수 확인 (switch문 활용)
+		switch (correctCount) {
+		case 6:
 			System.out.println("1등 축");
-		} else if (correctCount == 5) {
-			System.out.println("3등 ");
-		} else if (correctCount == 4) {
-			System.out.println("4등 ");
-		} else if (correctCount == 3) {
-			System.out.println("5등 ");
-		} else {
-			System.out.println("탈락");
+			break;
+		case 5:
+			System.out.println("3등 축");
+			break;
+		case 4:
+			System.out.println("4등 축");
+			break;
+		case 3:
+			System.out.println("5등 축");
+			break;
+		default:
+			System.out.println("꽝!");
+			break;
 		}
+
 	}
 
 }
