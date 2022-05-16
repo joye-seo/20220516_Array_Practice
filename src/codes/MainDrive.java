@@ -85,9 +85,19 @@ public class MainDrive {
 			System.out.println("1등 축");
 		} else if (correctCount == 5) {
 			// 보너스 번호와의 동일여부 -> 2/3등구분 처리
-			System.out.println("2등 ");
+			boolean isBonusCorrect = false;
 
-			System.out.println("3등 ");
+			for (int myNum : myNumbers) {
+				if (myNum == bonusNum) {
+					isBonusCorrect = true;
+					break;
+				}
+			}
+			if (isBonusCorrect) {
+				System.out.println("2등 ");
+			} else {
+				System.out.println("3등 ");
+			}
 		} else if (correctCount == 4) {
 			System.out.println("4등 ");
 		} else if (correctCount == 3) {
