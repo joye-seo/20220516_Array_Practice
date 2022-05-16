@@ -58,37 +58,62 @@ public class MainDrive {
 			}
 		}
 
+		// 보너스 번호 뽑기
+		int bonusNum = 0;
+		while (true) {
+			// Math.random() -> Double 0...1
+			int randomNum = (int) (Math.random() * 45 + 1);
+
+			boolean isRangOk = (1 <= randomNum && randomNum <= 45);
+
+			boolean isRepeat = false;
+
+			for (int num : winNumbers) {
+				if (num == randomNum) {
+					isRepeat = true;
+				}
+			}
+
+			if (!isRangOk && !isRepeat) {
+				bonusNum = randomNum;
+				break;
+			}
+		}
+
 		// 당첨등수 확인
-//		if (correctCount == 6) {
-//			System.out.println("1등 축");
-//		} else if (correctCount == 5) {
-//			System.out.println("3등 ");
-//		} else if (correctCount == 4) {
-//			System.out.println("4등 ");
-//		} else if (correctCount == 3) {
-//			System.out.println("5등 ");
-//		} else {
-//			System.out.println("탈락");
-//		}
+		if (correctCount == 6) {
+			System.out.println("1등 축");
+		} else if (correctCount == 5) {
+			// 보너스 번호와의 동일여부 -> 2/3등구분 처리
+			System.out.println("2등 ");
+
+			System.out.println("3등 ");
+		} else if (correctCount == 4) {
+			System.out.println("4등 ");
+		} else if (correctCount == 3) {
+			System.out.println("5등 ");
+		} else {
+			System.out.println("탈락");
+		}
 
 		// 당첨둥수 확인 (switch문 활용)
-		switch (correctCount) {
-		case 6:
-			System.out.println("1등 축");
-			break;
-		case 5:
-			System.out.println("3등 축");
-			break;
-		case 4:
-			System.out.println("4등 축");
-			break;
-		case 3:
-			System.out.println("5등 축");
-			break;
-		default:
-			System.out.println("꽝!");
-			break;
-		}
+//		switch (correctCount) {
+//		case 6:
+//			System.out.println("1등 축");
+//			break;
+//		case 5:
+//			System.out.println("3등 축");
+//			break;
+//		case 4:
+//			System.out.println("4등 축");
+//			break;
+//		case 3:
+//			System.out.println("5등 축");
+//			break;
+//		default:
+//			System.out.println("꽝!");
+//			break;
+//		}
 
 	}
 
